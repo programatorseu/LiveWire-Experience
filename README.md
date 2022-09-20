@@ -108,3 +108,23 @@ document.querySelectorAll("[wire\\:snapshot]").forEach((el) => {
     });
 });
 ```
+
+### 5. Handling Request
+
+1. get component from snaphost
+2. call method on component
+3. turn component back into a snaphost and get HTML
+    - destruct with tuple
+4. send data to front-end
+
+```php
+    $component = (new Livewire)->fromSnapshot(request('snapshot'));
+    if ($method = request('callMethod')) {
+        (new Livewire)->callMethod($component, $method);
+    }
+    [$html, $snapshot] = (new Livewire)->toSnapshot($component);
+    return [
+        'html' => $html,
+        'snapshot' => $snapshot
+    ];
+```
