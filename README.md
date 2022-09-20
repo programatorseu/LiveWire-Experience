@@ -26,3 +26,17 @@ faking live experience
 
 -   blade facade::render
 -   getProperties - > array of key & value pairs - PHP Reflection API (inspect php code itself)
+-   put into class
+
+​ inside blade file -> turn code into blade directive
+
+```php
+        @livewire(App\Http\Livewire\Counter::class)
+```
+
+```php
+Blade::directive('livewire', function ($expression) {
+    return "<?php echo (new App\Livewire)->initialRender({$expression});?>";
+});
+
+```
