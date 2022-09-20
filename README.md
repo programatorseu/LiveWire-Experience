@@ -128,3 +128,6 @@ document.querySelectorAll("[wire\\:snapshot]").forEach((el) => {
         'snapshot' => $snapshot
     ];
 ```
+
+5. create seperate JS file
+6. add snaphot to root element with promise
